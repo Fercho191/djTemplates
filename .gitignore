@@ -1,0 +1,8 @@
+.idea
+*.pyc
+.DS_Store
+local_settings.py
+uploads/
+htmlcov/*
+.coverage
+db.sqlite3
