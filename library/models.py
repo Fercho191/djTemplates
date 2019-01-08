@@ -86,6 +86,13 @@ class Book(models.Model):
 
 
 class BookInstance(models.Model):
+    LOAN_STATUS = (
+        ('m', 'Maintenance'),
+        ('o', 'On loan'),
+        ('a', 'Available'),
+        ('r', 'Reserved'),
+    )
+
     book = models.ForeignKey(
         Book,
         related_name="book_instances",
@@ -97,7 +104,11 @@ class BookInstance(models.Model):
     )
     due_back = models.DateField()
     status = models.CharField(
-        max_length=10
+        max_length=1,
+        choices=LOAN_STATUS,
+        blank=True,
+        default='m',
+        help_text='Book availability',
     )
 
     class Meta:
