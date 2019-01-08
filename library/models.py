@@ -61,7 +61,6 @@ class Book(models.Model):
         on_delete=models.PROTECT
     )
     summary = models.TextField()
-    imprint = models.TextField()
     ISBN = models.CharField(
         max_length=15
     )
